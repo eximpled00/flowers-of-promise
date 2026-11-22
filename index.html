@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flowers of Promise</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Фоновое оформление -->
+    <div class="background"></div>
+
+    <!-- Основная страница -->
+    <main class="main-screen">
+
+        <!-- Верхняя часть -->
+        <header class="header">
+
+            <div class="logo-container">
+                <img src="assets/logo.jpg" alt="Flowers of Promise">
+            </div>
+
+            <div class="welcome">
+                <p class="welcome-small">— ДОБРО ПОЖАЛОВАТЬ —</p>
+
+                <h1>Дорогой путник,</h1>
+
+                <h2>рады видеть вас.</h2>
+
+                <p class="welcome-text">
+                    Начнём же наше путешествие.
+                </p>
+            </div>
+
+        </header>
+
+        <!-- Созвездие -->
+        <section class="constellation">
+
+          <div class="dragon-container">
+
+    <img src="assets/dragon.png"
+         alt="Драконье созвездие"
+         class="dragon-image">
+
+    <svg class="star-lines" viewBox="0 0 1000 1000">
+        <polyline
+            points="465,145 790,280 840,680 540,880 230,710 150,400 465,145"
+        />
+    </svg>
+
+  <button class="star star-1" data-star="0">✦</button>
+<button class="star star-2" data-star="1">✦</button>
+<button class="star star-3" data-star="2">✦</button>
+<button class="star star-4" data-star="3">✦</button>
+<button class="star star-5" data-star="4">✦</button>
+<button class="star star-6" data-star="5">✦</button>
+
+</div>
+
+        </section>
+       
+<!-- ОКНО ЗВЕЗДЫ -->
+<div class="star-modal" id="starModal">
+
+    <div class="modal-content">
+
+        <p class="modal-subtitle">✧ ПУТЕШЕСТВИЕ НАЧИНАЕТСЯ ✧</p>
+
+        <h2 id="modalTitle">Название раздела</h2>
+
+        <p id="modalQuestion">Вопрос раздела</p>
+
+        <div class="modal-buttons">
+            <button id="enterButton">Перейти</button>
+            <button id="stayButton">Остаться</button>
+        </div>
+
+    </div>
+
+</div>
+        <!-- Нижняя подпись -->
+        <footer class="footer">
+            <p>✧ ПУСТЬ ЗВЁЗДЫ УКАЗЫВАЮТ ВАМ ПУТЬ ✧</p>
+        </footer>
+
+    </main>
+    </main>
+
+    <!-- ВНУТРЕННИЕ РАЗДЕЛЫ -->
+    <section class="section-screen" id="sectionScreen">
+
+        <div class="section-content">
+
+            <img id="sectionIcon" src="" alt="" class="section-icon">
+
+            <h2 id="sectionTitle"></h2>
+
+            <div id="sectionBody" class="section-body"></div>
+
+            <button class="home-button" id="homeButton">
+                ✦ На главную
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

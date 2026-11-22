@@ -1,0 +1,965 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap');
+
+/* ОСНОВА */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #080E19;
+    color: #DCE8F5;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ФОН */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 55%,
+            rgba(40, 76, 112, 0.25),
+            transparent 65%
+        ),
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(38, 68, 102, 0.15),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #080E19,
+            #101C2D,
+            #080E19
+        );
+}
+
+/* ДЕКОРАТИВНЫЕ УЗОРЫ */
+
+.background::before {
+    content: "✧";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: min(85vw, 900px);
+    color: rgba(133, 178, 218, 0.025);
+
+    pointer-events: none;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0,
+            transparent 110px,
+            rgba(132, 170, 205, 0.025) 111px,
+            transparent 112px
+        );
+
+    pointer-events: none;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.main-screen {
+    width: min(1250px, 92%);
+    min-height: 100vh;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ВЕРХНЯЯ ПАНЕЛЬ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 55px 35px 35px;
+
+    border-bottom: 1px solid rgba(140, 179, 216, 0.2);
+}
+
+/* ЛОГОТИП */
+
+.logo-container {
+    width: 155px;
+    height: 155px;
+
+    overflow: hidden;
+    border-radius: 50%;
+
+    border: 1px solid rgba(151, 190, 227, 0.4);
+
+    box-shadow:
+        0 0 25px rgba(83, 143, 199, 0.15),
+        0 0 60px rgba(83, 143, 199, 0.07);
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ПРИВЕТСТВИЕ */
+
+.welcome {
+    text-align: right;
+}
+
+.welcome-small {
+    color: #87A9CC;
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-bottom: 18px;
+}
+
+.welcome h1,
+.welcome h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+
+.welcome h1 {
+    font-size: clamp(35px, 5vw, 55px);
+    color: #E0EAF5;
+}
+
+.welcome h2 {
+    font-size: clamp(28px, 4vw, 43px);
+    color: #9EBFDF;
+}
+
+.welcome-text {
+    margin-top: 17px;
+
+    color: #91A8C0;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ОБЛАСТЬ СОЗВЕЗДИЯ */
+
+.constellation {
+    flex: 1;
+
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 0;
+}
+
+.constellation-placeholder {
+    text-align: center;
+    color: #7899BA;
+}
+
+.constellation-placeholder span {
+    display: block;
+    font-size: 55px;
+    color: #A9D3F5;
+
+    text-shadow:
+        0 0 15px #73B7F0,
+        0 0 35px rgba(95, 170, 235, 0.5);
+}
+
+.constellation-placeholder p {
+    margin: 15px 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+/* НИЖНЯЯ ПОДПИСЬ */
+
+.footer {
+    padding: 25px 10px 35px;
+
+    border-top: 1px solid rgba(140, 179, 216, 0.2);
+
+    text-align: center;
+
+    color: #718CA9;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media (max-width: 650px) {
+
+    .header {
+        flex-direction: column;
+        gap: 30px;
+        padding: 35px 10px;
+    }
+
+    .logo-container {
+        width: 115px;
+        height: 115px;
+    }
+
+    .welcome {
+        text-align: center;
+    }
+
+    .welcome-small {
+        letter-spacing: 3px;
+    }
+
+    .constellation {
+        min-height: 350px;
+    }
+
+    .footer {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
+/* ДРАКОНЬЕ СОЗВЕЗДИЕ */
+
+.dragon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dragon-image {
+    display: block;
+    width: min(75vw, 720px);
+    height: auto;
+    object-fit: contain;
+
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 0 8px #78BFFF)
+        drop-shadow(0 0 22px #397FC0);
+
+    opacity: 0.8;
+}
+/* СОЗВЕЗДИЕ ДРАКОНА */
+
+.dragon-container {
+    position: relative;
+    width: min(75vw, 720px);
+    aspect-ratio: 1 / 1;
+    margin: auto;
+}
+
+.dragon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.star-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.star-lines polyline {
+    fill: none;
+    stroke: #91C9F5;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.65;
+    filter: drop-shadow(0 0 5px #65B8FF);
+}
+
+/* ЗВЁЗДЫ */
+
+.star {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #D8EEFF;
+    font-size: 35px;
+    text-shadow:
+        0 0 8px #8CCFFF,
+        0 0 20px #55AFFF,
+        0 0 35px #398DDB;
+    z-index: 2;
+}
+
+/* РАСПОЛОЖЕНИЕ */
+
+.star-1 { left: 46.5%; top: 14.5%; }
+.star-2 { left: 79%; top: 28%; }
+.star-3 { left: 84%; top: 68%; }
+.star-4 { left: 54%; top: 88%; }
+.star-5 { left: 23%; top: 71%; }
+.star-6 { left: 15%; top: 40%; }
+/* АНИМАЦИЯ ЗВЁЗД */
+
+.star {
+    cursor: pointer;
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease,
+        text-shadow 0.35s ease;
+
+    animation: star-pulse 3s ease-in-out infinite;
+}
+
+.star:hover {
+    transform: translate(-50%, -50%) scale(1.4);
+
+    color: #FFFFFF;
+
+    text-shadow:
+        0 0 12px #C5E7FF,
+        0 0 28px #75C5FF,
+        0 0 50px #398DDB;
+}
+
+@keyframes star-pulse {
+    0%, 100% {
+        filter: brightness(0.85);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+.star {
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+}
+/* ВСПЛЫВАЮЩЕЕ ОКНО */
+
+.star-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(3, 8, 18, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.star-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: min(90%, 450px);
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: linear-gradient(145deg, #14243A, #091321);
+    border: 1px solid rgba(143, 195, 235, 0.4);
+
+    box-shadow: 0 0 45px rgba(75, 145, 205, 0.2);
+}
+
+.modal-subtitle {
+    color: #8CB8DF;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.modal-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #E2F0FF;
+    margin-bottom: 18px;
+}
+
+.modal-content > p:nth-of-type(2) {
+    color: #AFC4DA;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.modal-buttons button {
+    padding: 12px 25px;
+    cursor: pointer;
+
+    color: #DCEBFA;
+    background: transparent;
+    border: 1px solid #668DB3;
+
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.modal-buttons button:hover {
+    background: rgba(105, 164, 215, 0.2);
+    box-shadow: 0 0 18px rgba(105, 164, 215, 0.3);
+}
+/* ВНУТРЕННИЕ РАЗДЕЛЫ */
+
+.section-screen {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding: 70px 20px;
+    align-items: center;
+    justify-content: center;
+    animation: section-appear 1.2s ease forwards;
+}
+
+.section-screen.active {
+    display: flex;
+}
+
+.section-content {
+    width: min(850px, 100%);
+    margin: auto;
+    text-align: center;
+}
+
+.section-icon {
+    display: block;
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin: 0 auto 25px;
+
+    filter: drop-shadow(0 0 15px rgba(255,255,255,0.3));
+}
+
+.section-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 35px;
+}
+
+.section-body {
+    color: #DCE8F5;
+    font-size: 15px;
+    line-height: 2;
+    text-align: left;
+}
+
+.home-button {
+    display: inline-block;
+    margin-top: 60px;
+    padding: 12px 20px;
+
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home-button:hover {
+    text-shadow: 0 0 12px #FFFFFF;
+    transform: translateY(-2px);
+}
+
+@keyframes section-appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* МОБИЛЬНЫЕ УСТРОЙСТВА */
+
+@media (max-width: 650px) {
+    .section-screen {
+        padding: 45px 18px;
+    }
+
+    .section-icon {
+        width: 110px;
+        height: 110px;
+    }
+
+    .section-body {
+        font-size: 14px;
+    }
+
+    .home-button {
+        margin-top: 40px;
+    }
+}
+/* ПРАВИЛА */
+
+.rules-intro {
+    margin-bottom: 45px;
+    padding: 25px 30px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.rules-intro p {
+    margin-bottom: 15px;
+}
+
+.rules-quote {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    text-align: center;
+}
+
+.rules-group-title {
+    margin: 45px 0 20px;
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.rule-item {
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.rule-item summary {
+    position: relative;
+    padding: 19px 35px 19px 5px;
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.3s ease;
+}
+
+.rule-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.rule-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: sans-serif;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.rule-item[open] summary::after {
+    content: "−";
+}
+
+.rule-item summary:hover {
+    color: #C9DDF0;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.rule-text {
+    padding: 5px 20px 22px;
+    color: #DCE8F5;
+    font-size: 14px;
+    line-height: 1.9;
+    animation: rule-appear 0.35s ease;
+}
+
+.rule-text p {
+    margin-bottom: 13px;
+}
+
+.rule-punishment {
+    color: #FFFFFF;
+    opacity: 0.85;
+    font-weight: 600;
+}
+
+@keyframes rule-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 650px) {
+    .rules-intro {
+        padding: 20px;
+    }
+
+    .rule-item summary {
+        font-size: 19px;
+    }
+
+    .rule-text {
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 13px;
+    }
+}
+/* АДМИНИСТРАЦИЯ */
+
+.admin-entry {
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.admin-entry:first-child {
+    padding-top: 0;
+}
+
+.admin-entry:last-child {
+    border-bottom: none;
+}
+
+.admin-entry h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+.admin-entry ul {
+    padding-left: 22px;
+    margin: 0;
+}
+
+.admin-entry li {
+    padding: 4px 0;
+    color: #DCE8F5;
+    line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+    .admin-entry h3 {
+        font-size: 23px;
+    }
+
+    .admin-entry li {
+        font-size: 13px;
+    }
+}
+/* ИГРЫ */
+
+.game-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.game-entry:last-child {
+    border-bottom: none;
+}
+
+.game-entry h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.game-entry p {
+    color: #DCE8F5;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 12px;
+}
+
+.game-entry strong {
+    color: #FFFFFF;
+}
+
+@media (max-width: 650px) {
+    .game-entry h3 {
+        font-size: 24px;
+    }
+
+    .game-entry p {
+        font-size: 14px;
+    }
+}
+.game-title {
+    font-style: italic;
+}
+.game-role {
+    margin-top: 25px;
+    padding-left: 18px;
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.game-role h4 {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.game-role p {
+    margin-bottom: 12px;
+}
+
+.game-finale {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-style: italic;
+}
+/* СПИСОК ИГР */
+
+.game-choice {
+    display: block;
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #FFFFFF;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.game-choice span {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+.game-choice small {
+    display: block;
+    margin-top: 8px;
+    color: #AFC4DA;
+    font-size: 12px;
+}
+
+.game-choice:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.55);
+}
+
+.games-back {
+    display: block;
+    margin: 35px auto 0;
+    padding: 12px 20px;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    transition: 0.3s;
+}
+
+.games-back:hover {
+    text-shadow: 0 0 12px #FFFFFF;
+}
+
+.game-details[hidden],
+.games-menu[hidden] {
+    display: none;
+}
+/* НОРМА И РЕСТ */
+
+.rest-entry {
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.rest-entry:last-child {
+    border-bottom: none;
+}
+
+.rest-entry h3 {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.rest-entry p,
+.rest-entry li {
+    color: #DCE8F5;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.rest-entry ul,
+.rest-entry ol {
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.rest-entry li {
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+.rest-entry p + p {
+    margin-top: 15px;
+}
+
+@media (max-width: 650px) {
+    .rest-entry {
+        padding: 20px 0;
+    }
+
+    .rest-entry h3 {
+        font-size: 26px;
+    }
+
+    .rest-entry p,
+    .rest-entry li {
+        font-size: 14px;
+    }
+}
+/* ВХОД И ВЫХОД */
+
+.door-entry {
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.door-entry:last-child {
+    border-bottom: none;
+}
+
+.door-entry h3 {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.door-entry p,
+.door-entry li {
+    color: #DCE8F5;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.door-entry ul,
+.door-entry ol {
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.door-entry li {
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+.door-entry p + p {
+    margin-top: 15px;
+}
+
+@media (max-width: 650px) {
+    .door-entry {
+        padding: 20px 0;
+    }
+
+    .door-entry h3 {
+        font-size: 26px;
+    }
+
+    .door-entry p,
+    .door-entry li {
+        font-size: 14px;
+    }
+}
+/* АРХИВ РОЛЕЙ */
+
+.roles-entry {
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.roles-entry p {
+    color: #DCE8F5;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.roles-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 25px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.roles-link:hover {
+    border-color: #FFFFFF;
+    text-shadow: 0 0 12px #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 650px) {
+    .roles-entry p {
+        font-size: 14px;
+    }
+
+    .roles-link {
+        padding: 12px 18px;
+    }
+}
